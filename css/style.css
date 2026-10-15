@@ -197,6 +197,21 @@ a:focus-visible {
   margin-bottom: 0;
 }
 
+/* --- О проекте --- */
+.discription__section {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-lg);
+}
+
+.discription__section__title {
+  margin-top: 0;
+}
+
+.discription__section_text {
+  margin-bottom: var(--space-md);
+}
+
 /* --- Секции --- */
 .section {
   max-width: var(--container-width);
