@@ -1,0 +1,11 @@
+*   [33mcc19244[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #2 from Baguhan-p/feature/form-and-css-architecture
+[31m|[m[32m\[m  
+[31m|[m * [33m9776aeb[m[33m ([m[1;31morigin/feature/form-and-css-architecture[m[33m, [m[1;32mfeature/form-and-css-architecture[m[33m)[m доюавил формы, модули, CSS переменные, статусы интерфейса
+[31m|[m[31m/[m  
+* [33m304b686[m Update README.md
+*   [33mb20c3e6[m Merge pull request #1 from Baguhan-p/feature/html-css-start-page
+[33m|[m[34m\[m  
+[33m|[m * [33m7d50dd1[m тетраль номер 2
+[33m|[m[33m/[m  
+* [33m64b98a6[m Test
+* [33mf4da3da[m Initial commit
