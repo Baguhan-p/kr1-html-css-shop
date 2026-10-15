@@ -66,3 +66,22 @@ form.addEventListener('input', (event) => {
     target.removeAttribute('aria-invalid');
   }
 });
+
+// Кнопки «Заказать» в карточках товаров — открывают модалку и
+// подставляют название товара в комментарий
+document.querySelectorAll('.product-card__button').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const product = btn.dataset.product || '';
+    const commentField = document.getElementById('order-comment');
+    const topicField   = document.getElementById('order-topic');
+
+    if (commentField && product) {
+      commentField.value = `Интересует: ${product}`;
+    }
+    if (topicField && !topicField.value) {
+      topicField.value = 'order';
+    }
+
+    dialog.showModal();
+  });
+});
