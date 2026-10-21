@@ -12,13 +12,15 @@
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html">Главная</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="product.html?id=1">О товаре</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="contacts.html">Контакты</a>
@@ -89,35 +91,70 @@
       <section class="catalog-products">
         <h2 class="catalog-products__title">Список товаров</h2>
 
-        <div class="products-grid">
+         <div class="products-grid">
           <article class="product-card">
-            <h3 class="product-card__title">Товар 1</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/product-1.jpg" alt="Логотип Claude Pro">
+            <h3 class="product-card__title">Подписка Claude Pro (1 мес.)</h3>
+            <p class="product-card__description">Официальная подписка на нейросеть Claude Pro. Полный доступ к последним моделям AI.</p>
+            <p class="product-card__price">1 990 ₽</p>
+            <a class="button button--primary product-card__button" href="product.html?id=1">Подробнее</a>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 2</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/product-2.jpg" alt="Логотип Voicemod Pro">
+            <h3 class="product-card__title">VOICEMOD PRO Навсегда 🎙️</h3>
+            <p class="product-card__description">Пожизненная лицензия на голосовой чейнджер. Мгновенная автовыдача ключа.</p>
+            <p class="product-card__price">2 490 ₽</p>
+            <a class="button button--primary product-card__button" href="product.html?id=2">Подробнее</a>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 3</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <img class="product-card__image" src="images/product-3.jpg" alt="Коробка Windows 10/11">
+            <h3 class="product-card__title">Ключ Windows 10/11 Pro/Home</h3>
+            <p class="product-card__description">Лицензионный ключ активации. ♻️ Автовыдача 24/7. Гарантия работы.</p>
+            <p class="product-card__price">890 ₽</p>
+            <a class="button button--primary product-card__button" href="product.html?id=3">Подробнее</a>
           </article>
         </div>
       </section>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+  <footer class="site-footer" id="contacts">
+    <div class="site-footer__inner">
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">ShopProject</h3>
+        <p class="site-footer__text">Учебный интернет-магазин цифровых товаров и подписок.</p>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Контакты</h3>
+        <ul class="site-footer__list">
+          <li>📞 +7 (900) 000-00-00</li>
+          <li>✉️ info@shopproject.ru</li>
+          <li>📍 г. Москва, ул. Учебная, д. 1</li>
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Режим работы</h3>
+        <ul class="site-footer__list">
+          <li>Пн–Пт: 9:00 – 20:00</li>
+          <li>Сб–Вс: 10:00 – 18:00</li>
+          <li>Автовыдача: 24/7</li>
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Информация</h3>
+        <ul class="site-footer__list">
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="contacts.html">Обратная связь</a></li>
+          <li><a href="index.html#advantages">Преимущества</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
   </footer>
 
   <script src="js/main.js" defer></script>

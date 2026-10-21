@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Товар – Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-detail { max-width: var(--container-width); margin: 0 auto var(--space-xl); padding: 0 var(--space-lg); }
+    .product-detail__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; }
+    .product-detail__image { width: 100%; border-radius: var(--radius-md); aspect-ratio: 4/3; object-fit: cover; }
+    .product-detail__info { display: flex; flex-direction: column; gap: var(--space-md); }
+    .product-detail__price { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
+    .product-detail__seller { font-size: 0.9rem; color: var(--color-muted); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-sm); }
+    .product-detail__desc { line-height: 1.6; }
+    .product-detail__features { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-sm); }
+    .product-detail__features li::before { content: "✓ "; color: var(--color-success); font-weight: bold; }
+    .back-link { display: inline-flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-lg); text-decoration: none; color: var(--color-muted); }
+    .back-link:hover { color: var(--color-primary); }
+    @media (max-width: 768px) { .product-detail__grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="product.html?id=1">О товаре</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="product-detail">
+      <a href="javascript:history.back()" class="back-link">← Назад</a>
+      
+      <div class="product-detail__grid">
+        <img id="p-image" class="product-detail__image" src="" alt="Товар">
+        
+        <div class="product-detail__info">
+          <h1 id="p-title" class="section__title" style="margin-bottom: 0;">Загрузка...</h1>
+          <p id="p-seller" class="product-detail__seller">Продавец: <strong>ShopProject Official</strong></p>
+          <p id="p-price" class="product-detail__price">0 ₽</p>
+          
+          <div class="product-detail__desc">
+            <h3>Описание</h3>
+            <p id="p-short-desc"></p>
+            <p id="p-full-desc"></p>
+          </div>
+
+          <div>
+            <h3>Гарантии и доставка</h3>
+            <ul class="product-detail__features" id="p-features"></ul>
+          </div>
+
+          <button class="button button--primary" id="p-buy-btn" type="button" style="align-self: flex-start; padding: 12px 32px; font-size: 1.1rem;">
+            Заказать сейчас
+          </button>
+        </div>
+      </div>
+
+      <section class="section" style="margin-top: var(--space-xl); padding: 0;">
+        <h2 class="section__title">Отзывы о товаре</h2>
+        <div class="reviews-grid" id="p-reviews"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="site-footer__inner">
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">ShopProject</h3>
+        <p class="site-footer__text">Учебный интернет-магазин цифровых товаров и подписок.</p>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Контакты</h3>
+        <ul class="site-footer__list">
+          <li>📞 +7 (900) 000-00-00</li>
+          <li>✉️ info@shopproject.ru</li>
+          <li>📍 г. Москва, ул. Учебная, д. 1</li>
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Режим работы</h3>
+        <ul class="site-footer__list">
+          <li>Пн–Пт: 9:00 – 20:00</li>
+          <li>Сб–Вс: 10:00 – 18:00</li>
+          <li>Автовыдача: 24/7</li>
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Информация</h3>
+        <ul class="site-footer__list">
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="contacts.html">Обратная связь</a></li>
+          <li><a href="index.html#advantages">Преимущества</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
+  </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+    <form class="order-form" id="order-form" novalidate>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-name">Имя</label>
+        <input class="order-form__input" type="text" id="order-name" name="name" placeholder="Введите ваше имя" required minlength="2">
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-email">E-mail</label>
+        <input class="order-form__input" type="email" id="order-email" name="email" placeholder="example@mail.ru" required>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-comment">Комментарий</label>
+        <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" readonly></textarea>
+      </div>
+      <div class="order-form__actions">
+        <button type="button" class="button button--secondary" id="close-order-dialog">Закрыть</button>
+        <button type="submit" class="button button--primary">Отправить</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="success-message" id="success-message" hidden>Заявка отправлена!</div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/product.js" defer></script>
+</body>
+</html>
