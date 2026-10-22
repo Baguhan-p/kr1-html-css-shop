@@ -24,6 +24,9 @@
             <a class="site-nav__link" href="product.html?id=1">О товаре</a>
           </li>
           <li class="site-nav__item">
+            <a class="site-nav__link" href="compare.html">Сравнение (<span id="compare-count">0</span>)</a>
+          </li>
+          <li class="site-nav__item">
             <a class="site-nav__link" href="contacts.html">Контакты</a>
           </li>
           <li class="site-nav__item">
@@ -128,6 +131,53 @@
     <button class="scroll-top-btn" id="scroll-top-btn" type="button" aria-label="Прокрутить страницу вверх" title="Наверх">
       ↑
     </button>
+
+    <!-- Блок FAQ -->
+    <section class="section faq-section" id="faq">
+      <h2 class="section__title">Частые вопросы (FAQ)</h2>
+      
+      <div class="faq-list">
+        <!-- Вопрос 1 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="answer-1">
+            Как быстро приходит товар после оплаты?
+          </button>
+          <div class="faq-answer" id="answer-1" hidden>
+            <p>Все цифровые товары (ключи Windows, подписки, услуги) отправляются автоматически на указанный E-mail в течение 1–5 минут после подтверждения платежа.</p>
+          </div>
+        </article>
+
+        <!-- Вопрос 2 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="answer-2">
+            Что делать, если письмо не пришло?
+          </button>
+          <div class="faq-answer" id="answer-2" hidden>
+            <p>Проверьте папку «Спам» или «Промоакции». Если письма нет там, напишите нам на info@shopproject.ru с темой заказа — мы вышлем дубликат вручную.</p>
+          </div>
+        </article>
+
+        <!-- Вопрос 3 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="answer-3">
+            Можно ли вернуть товар?
+          </button>
+          <div class="faq-answer" id="answer-3" hidden>
+            <p>Так как товары являются лицензионным, возврат возможен только в случае технической неисправности ключа, подтвержденной скриншотом ошибки активации. Срок обращения — 7 дней.</p>
+          </div>
+        </article>
+
+        <!-- Вопрос 4 -->
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="answer-4">
+            Что если я не уверен в продукте?
+          </button>
+          <div class="faq-answer" id="answer-4" hidden>
+            <p>Вы всегда можете посмотреть обзоры других пользователей на интересующий товар или услугу. Так же вы сами можете написать отзыв на товар после покупки, чтобы помочь нам улучшить сервис и помочь другим пользователям.</p>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
 
    <footer class="site-footer" id="contacts">

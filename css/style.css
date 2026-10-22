@@ -149,26 +149,24 @@ a:focus-visible {
 /* --- Навигация --- */
 .site-nav__list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Разрешаем перенос, если совсем узко, но стараемся уместить */
   justify-content: center;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm); /* УМЕНЬШИЛИ ОТСТУП МЕЖДУ ПУНКТАМИ (было md) */
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.site-nav__item {
-  /* место под будущее */
-}
-
 .site-nav__link {
   display: inline-block;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-sm); /* УМЕНЬШИЛИ ВНУТРЕННИЕ ОТСТУПЫ КНОПОК */
+  font-size: 0.9rem; /* ЧУТЬ УМЕНЬШИЛИ ШРИФТ ДЛЯ КОМПАКТНОСТИ */
   color: var(--color-primary);
   text-decoration: none;
   border-radius: var(--radius-sm);
   transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap; /* Запрещаем текст внутри кнопки переноситься по словам */
 }
 
 .site-nav__link:hover {
@@ -264,32 +262,68 @@ a:focus-visible {
   border-color: var(--color-primary);
 }
 
-.product-card--discount {
-  border-color: var(--color-danger);
-}
-
 .product-card__title {
   margin: 0;
   color: var(--color-text);
+  font-size: 1rem; 
 }
 
 .product-card__description {
   margin: 0;
   color: var(--color-muted);
+  font-size: 0.9rem;
+  flex-grow: 1; 
 }
 
 .product-card__price {
   margin: 0;
   font-weight: 700;
+  font-size: 1.1rem;
 }
 
-.product-card--discount .product-card__price {
-  color: var(--color-danger);
+/* Контейнер для кнопок действий */
+.product-actions {
+  display: flex;
+  flex-direction: column; /* Кнопки друг под другом */
+  align-items: center;    /* ЦЕНТРИРУЕМ ВСЕ ВНУТРИ КОНТЕЙНЕРА */
+  gap: var(--space-xs);   
+  margin-top: auto;       
 }
 
-.product-card__button {
-  margin-top: auto;
-  align-self: flex-start;
+/* Общие стили для кнопок внутри карточки */
+.product-actions .button {
+  width: 100%;            /* Ширина всей карточки */
+  text-align: center;     /* Текст по центру самой кнопки */
+  padding: 8px 12px;      
+  font-size: 0.95rem;     
+  
+  /* ВАЖНО: Переопределяем глобальные стили ссылок, чтобы цвет не менялся хаотично */
+  text-decoration: none;
+  color: inherit;         /* Наследуем цвет от модификатора (primary/secondary) */
+}
+
+/* Специфичные стили для Primary (Подробнее) */
+.product-actions .button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.product-actions .button--primary:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+/* Специфичные стили для Secondary (Сравнить) */
+.product-actions .button--secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.product-actions .button--secondary:hover {
+  background-color: var(--color-surface-accent); /* Светло-голубой фон вместо темно-синего */
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
 }
 
 /* --- Aside --- */
@@ -344,6 +378,12 @@ a:focus-visible {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
+  
+  /* Магия фиксации */
+  position: sticky;
+  top: 80px;   
+  align-self: start; 
+  z-index: 10;     
 }
 
 .catalog-filters__title {
@@ -661,4 +701,71 @@ a:focus-visible {
     bottom: var(--space-md);
     right: var(--space-md);
   }
+}
+
+/* --- FAQ --- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.faq-question {
+  width: 100%;
+  padding: var(--space-lg);
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+  background-color: var(--color-surface);
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"]::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 var(--space-lg);
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.faq-answer:not([hidden]) {
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-lg);
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
 }

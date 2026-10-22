@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сравнение товаров – ShopProject</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-lg);
+      background-color: var(--color-bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .compare-table th, .compare-table td {
+      padding: var(--space-md);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+    .compare-table th {
+      background-color: var(--color-surface);
+      font-weight: 700;
+      width: 200px; /* Ширина колонки с названиями параметров */
+    }
+    .compare-table tr:last-child td,
+    .compare-table tr:last-child th {
+      border-bottom: none;
+    }
+    .compare-image {
+      max-width: 150px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      display: block;
+      margin-bottom: var(--space-sm);
+    }
+    .remove-from-compare {
+      color: var(--color-danger);
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      padding: 0;
+      margin-top: var(--space-sm);
+      display: inline-block;
+    }
+    .empty-compare-msg {
+      text-align: center;
+      padding: var(--space-xl);
+      color: var(--color-muted);
+    }
+    @media (max-width: 768px) {
+      .compare-table { display: block; overflow-x: auto; white-space: nowrap; }
+      .compare-table th { position: sticky; left: 0; z-index: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="product.html?id=1">О товаре</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="compare.html">Сравнение (<span id="compare-count">0</span>)</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h1 class="section__title">Сравнение товаров</h1>
+      <p class="section__text">Выберите товары для детального сопоставления характеристик.</p>
+      
+      <div id="compare-container">
+        <!-- Сюда JS вставит таблицу -->
+        <div class="empty-compare-msg">Вы еще не выбрали товары для сравнения.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+       <!-- Твой стандартный футер -->
+       <div class="site-footer__column">
+        <h3 class="site-footer__title">ShopProject</h3>
+        <p class="site-footer__text">Учебный интернет-магазин цифровых товаров и подписок.</p>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Контакты</h3>
+        <ul class="site-footer__list">
+          <li>📞 +7 (900) 000-00-00</li>
+          <li>✉️ info@shopproject.ru</li>
+          <li>📍 г. Москва, ул. Учебная, д. 1</li>
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Режим работы</h3>
+        <ul class="site-footer__list">
+          <li>Пн–Пт: 9:00 – 20:00</li>
+          <li>Сб–Вс: 10:00 – 18:00</li>
+          <li>Автовыдача: 24/7</li>
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <h3 class="site-footer__title">Информация</h3>
+        <ul class="site-footer__list">
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="contacts.html">Обратная связь</a></li>
+          <li><a href="index.html#advantages">Преимущества</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
+  </footer>
+
+    <script src="js/db.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/compare.js" defer></script>
+</body>
+</html>

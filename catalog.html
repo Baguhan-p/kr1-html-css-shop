@@ -23,6 +23,9 @@
             <a class="site-nav__link" href="product.html?id=1">О товаре</a>
           </li>
           <li class="site-nav__item">
+            <a class="site-nav__link" href="compare.html">Сравнение (<span id="compare-count">0</span>)</a>
+          </li>
+          <li class="site-nav__item">
             <a class="site-nav__link" href="contacts.html">Контакты</a>
           </li>
           <li class="site-nav__item">
@@ -54,12 +57,12 @@
       <aside class="catalog-filters">
         <h2 class="catalog-filters__title">Фильтры</h2>
 
-        <form class="filters-form" action="#" method="get">
+        <form class="filters-form" id="catalog-filter-form">
           <fieldset class="filters-form__group">
             <legend class="filters-form__legend">Категория</legend>
 
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="all">
+              <input type="checkbox" name="category" value="all" checked>
               Все товары
             </label>
 
@@ -71,6 +74,16 @@
             <label class="filters-form__label">
               <input type="checkbox" name="category" value="new">
               Новинки
+            </label>
+
+            <label class="filters-form__label">
+              <input type="checkbox" name="category" value="games">
+              Игры
+            </label>
+
+            <label class="filters-form__label">
+              <input type="checkbox" name="category" value="ai">
+              Нейросети
             </label>
           </fieldset>
 
@@ -85,39 +98,122 @@
           </fieldset>
 
           <button class="button button--primary" type="submit">Применить</button>
+          <button class="button button--secondary" type="reset" style="margin-top: var(--space-sm); width: 100%;">Сбросить</button>
         </form>
       </aside>
 
       <section class="catalog-products">
         <h2 class="catalog-products__title">Список товаров</h2>
 
-         <div class="products-grid">
-          <article class="product-card">
+        <div class="products-grid" id="products-container">
+          
+          <!-- Товар 1: Популярное + Нейросети -->
+          <article class="product-card" data-id="1" data-category="popular,ai" data-price="1990">
             <img class="product-card__image" src="images/product-1.jpg" alt="Логотип Claude Pro">
             <h3 class="product-card__title">Подписка Claude Pro (1 мес.)</h3>
             <p class="product-card__description">Официальная подписка на нейросеть Claude Pro. Полный доступ к последним моделям AI.</p>
+            
             <p class="product-card__price">1 990 ₽</p>
-            <a class="button button--primary product-card__button" href="product.html?id=1">Подробнее</a>
+            <div class="product-actions">
+              <a class="button button--primary product-card__button" href="product.html?id=1">Подробнее</a>
+              <button class="button button--secondary compare-btn" type="button" data-compare-id="1">Сравнить</button>
+            </div>
           </article>
 
-          <article class="product-card">
+          <!-- Товар 2: Популярное -->
+          <article class="product-card" data-id="2" data-category="popular" data-price="2490">
             <img class="product-card__image" src="images/product-2.jpg" alt="Логотип Voicemod Pro">
             <h3 class="product-card__title">VOICEMOD PRO Навсегда 🎙️</h3>
             <p class="product-card__description">Пожизненная лицензия на голосовой чейнджер. Мгновенная автовыдача ключа.</p>
             <p class="product-card__price">2 490 ₽</p>
-            <a class="button button--primary product-card__button" href="product.html?id=2">Подробнее</a>
+            <div class="product-actions">
+              <a class="button button--primary product-card__button" href="product.html?id=2">Подробнее</a>
+              <button class="button button--secondary compare-btn" type="button" data-compare-id="2">Сравнить</button>
+            </div>
           </article>
 
-          <article class="product-card">
+          <!-- Товар 3: Популярное -->
+          <article class="product-card" data-id="3" data-category="popular" data-price="890">
             <img class="product-card__image" src="images/product-3.jpg" alt="Коробка Windows 10/11">
             <h3 class="product-card__title">Ключ Windows 10/11 Pro/Home</h3>
             <p class="product-card__description">Лицензионный ключ активации. ♻️ Автовыдача 24/7. Гарантия работы.</p>
             <p class="product-card__price">890 ₽</p>
-            <a class="button button--primary product-card__button" href="product.html?id=3">Подробнее</a>
+            <div class="product-actions">
+              <a class="button button--primary product-card__button" href="product.html?id=3">Подробнее</a>
+              <button class="button button--secondary compare-btn" type="button" data-compare-id="3">Сравнить</button>
+            </div>
           </article>
+
+          <!-- Товар 4: Новинка + Игры -->
+          <article class="product-card" data-id="4" data-category="new,games" data-price="1490">
+            <img class="product-card__image" src="images/product-4.jpg" alt="Discord Nitro">
+            <h3 class="product-card__title">🌟 NITRO FULL + BOOSTS 🌟</h3>
+            <p class="product-card__description">Discord Nitro на 1 месяц, 2 буста сервера и 5 эксклюзивных украшений профиля.</p>
+            <p class="product-card__price">1 490 ₽</p>
+            <div class="product-actions">
+              <a class="button button--primary product-card__button" href="product.html?id=4">Подробнее</a>
+              <button class="button button--secondary compare-btn" type="button" data-compare-id="4">Сравнить</button>
+            </div>
+          </article>
+
+          <!-- Товар 5: Игры -->
+          <article class="product-card" data-id="5" data-category="games" data-price="3200">
+            <img class="product-card__image" src="images/product-5.jpg" alt="PUBG Mobile Elite Pass">
+            <h3 class="product-card__title">Elite Pass lvl 100 (PUBG)</h3>
+            <p class="product-card__description">Прокачка пропуска до 100 уровня по вашему ID. Включает покупку 720 UC для старта.</p>
+            <p class="product-card__price">3 200 ₽</p>
+            <div class="product-actions">
+            <a class="button button--primary product-card__button" href="product.html?id=5">Подробнее</a>
+            <button class="button button--secondary compare-btn" type="button" data-compare-id="5">Сравнить</button>
+            </div>
+          </article>
+
+          <!-- Товар 6: Новинка + Нейросети -->
+          <article class="product-card" data-id="6" data-category="new,ai" data-price="1100">
+            <img class="product-card__image" src="images/product-6.jpg" alt="Suno AI Logo">
+            <h3 class="product-card__title">⚡️ SUNO AI PRO ⚡️</h3>
+            <p class="product-card__description">Доступ к генератору музыки Suno AI на 1 месяц. Без входа в ваш аккаунт, безопасная выдача.</p>
+            <p class="product-card__price">1 100 ₽</p>
+            <div class="product-actions">
+            <a class="button button--primary product-card__button" href="product.html?id=6">Подробнее</a>
+            <button class="button button--secondary compare-btn" type="button" data-compare-id="6">Сравнить</button>
+            </div>
+          </article>
+
+          <!-- Товар 7: Игры -->
+          <article class="product-card" data-id="7" data-category="games" data-price="450">
+            <img class="product-card__image" src="images/product-7.jpg" alt="Brawl Stars Pass">
+            <h3 class="product-card__title">☑️ BRAWL PASS PLUS ☑️</h3>
+            <p class="product-card__description">Активация нового Бравл Пасса Плюс за минуту. Все награды сезона доступны сразу.</p>
+            <p class="product-card__price">450 ₽</p>
+            <div class="product-actions">
+            <a class="button button--primary product-card__button" href="product.html?id=7">Подробнее</a>
+            <button class="button button--secondary compare-btn" type="button" data-compare-id="7">Сравнить</button>
+          </div>
+          </article>
+
+          <!-- Товар 8: Новинка + Нейросети -->
+          <article class="product-card" data-id="8" data-category="new,ai" data-price="2990">
+            <img class="product-card__image" src="images/product-8.jpg" alt="ChatGPT Plus Key">
+            <h3 class="product-card__title">☪️ ЧатГПТ Plus K12 | CODEX 🔑</h3>
+            <p class="product-card__description">Личный доступ к GPT-4o и Codex. Лицензия действует до конца 2028 года.</p>
+            <p class="product-card__price">2 990 ₽</p>
+            <div class="product-actions">
+            <a class="button button--primary product-card__button" href="product.html?id=8">Подробнее</a>
+            <button class="button button--secondary compare-btn" type="button" data-compare-id="8">Сравнить</button>
+          </div>
+          </article>
+
+        </div>
+        
+        <div id="no-results-msg" hidden style="text-align:center; padding: var(--space-xl); color: var(--color-muted); grid-column: 1 / -1;">
+          По вашему запросу ничего не найдено. Попробуйте изменить фильтры.
         </div>
       </section>
     </section>
+    <button class="scroll-top-btn" id="scroll-top-btn" type="button" aria-label="Прокрутить страницу вверх" title="Наверх">
+      ↑
+    </button>
   </main>
 
   <footer class="site-footer" id="contacts">
@@ -157,6 +253,8 @@
     </div>
   </footer>
 
+  <script src="js/db.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/catalog.js" defer></script>
 </body>
 </html>
